@@ -32,17 +32,23 @@ const UserSchema=new mongoose.Schema({
     }
 });
 
-
-module.exports=mongoose.model('User',UserSchema);
-
 //encrypt password using bcrypt
-UserSchema.pre('save', function(next){
+UserSchema.pre('save',async function(next){
     if(!this.isModified('password')){
         next();
     }
-    var salt= bcrypt.genSalt(10)
+    let salt=await bcrypt.genSalt(10);
     this.password = bcrypt.hashSync(this.password, salt);
-    console.log(this.password)
+    
 });
+
+//Match user password to hash password
+UserSchema.methods.matchPassword=async function(enteredPassword){
+    return await bcrypt.compare(enteredPassword,this.password)
+};
+
+module.exports=mongoose.model('User',UserSchema);
+
+
 
 
