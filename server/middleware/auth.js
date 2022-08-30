@@ -15,7 +15,7 @@ exports.protect = async(req,res,next)=>{
     // }
 
     if(!token){
-        return  next(ErrorResponse(`Not authorize to ascess this route`,401))
+        return  next(new ErrorResponse(`Not authorize to ascess this route`,401))
     }
 
     try {
@@ -28,6 +28,6 @@ exports.protect = async(req,res,next)=>{
             next();
         }
     } catch (error) {
-        return  next(ErrorResponse(`Not authorize to ascess this route`,401))
+        return   next(new ErrorResponse(`Not authorize to ascess this route`,401))
     }
 }
