@@ -3,6 +3,8 @@ const connectToMongo = require('./config/db');
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const dotenv= require('dotenv');
+const cookieParser=require('cookie-parser');
+const errorHandler=require('./middleware/error')
 
 
 //Load env vars
@@ -19,6 +21,9 @@ const port = 5000
 //body parser
 app.use(express.json());
 
+//Cookie parser
+app.use(cookieParser());
+
 app.use(bodyParser.json({limit: "30mb" , extended:true}));
 app.use(bodyParser.urlencoded({limit: "30mb" , extended:true}));
 app.subscribe(cors)
@@ -26,6 +31,8 @@ app.subscribe(cors)
 //Mount routes
 app.use('/api/v1/post',post);
 app.use('/api/v1/auth',auth);
+
+app.use(errorHandler);
 
 
 app.listen(port, () => {

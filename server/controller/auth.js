@@ -1,4 +1,5 @@
 const User= require('../models/User');
+const ErrorResponse=require('../utils/errorResponse')
 
 //Register a user
 
@@ -12,15 +13,17 @@ exports.register = async(req,res)=>{
         password
     })
 
-    res.status(200).json({success:true, user});
+    
+    sendTokenResponse(user,200,res);
+
 }
 
 //Login user
-exports.login=async(req,res)=>{
+exports.login=async(req,res,next)=>{
     const {email,password}=req.body;
 
     if(!email || !password){
-        return res.status(404).json('Please provide and email and password');
+        return next(new ErrorResponse('Please provide and email and password' ,404));
         
     }
 
@@ -28,15 +31,40 @@ exports.login=async(req,res)=>{
     const user= await User.findOne({email}).select('+password');
 
     if(!user){
-        return res.status(401).json('Invalid Credential');
+        return next(new ErrorResponse('Invalid Credential' ,404));
     }
 
     //Check if password matches
     const isMatch = await user.matchPassword(password) 
 
     if(!isMatch){
-        return res.status(401).json('Invalid Credential');
+        return next(new ErrorResponse('Invalid Credential' ,404));
     }
 
-    res.status(200).json({ success: true , user})
+    sendTokenResponse(user,200,res);
+};
+
+
+
+
+
+//Get token from model, create cookie and send response
+const sendTokenResponse = (user , statusCode , res)=>{
+    //Create Token
+    const token = user.getsignedJwtToken();
+
+    const option={
+        expires:new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE *24 * 60* 60 * 1000),
+        httpOnly:true
+    };
+
+
+    
+    res.status(statusCode)
+    .cookie('token',token,option)
+    .json({
+        success:true,
+        token
+    });
+
 }

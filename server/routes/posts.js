@@ -3,7 +3,9 @@ const{getPost ,createPost}=require('../controller/posts')
 
 const router =express.Router();
 
+const{protect} = require('../middleware/auth')
+
 router.get('/',getPost);
-router.post('/',createPost);
+router.post('/',protect , createPost);
 
 module.exports=router;

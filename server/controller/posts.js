@@ -1,4 +1,4 @@
-const Posts = require('../models/Posts')
+const Posts = require('../models/Posts');
 
 //Get all the post
 exports.getPost =async(req,res) =>{
@@ -12,13 +12,8 @@ exports.getPost =async(req,res) =>{
 }; 
 
 //Create new post
-exports.createPost =async(req,res) =>{
-    try {
+exports.createPost =async(req,res,next) =>{
         const post= await Posts.create(req.body);
         res.status(201).json({success:true , post});
-    } catch (error) {
-        res.status(404).json({message:err.message})
-    }
-    
 }; 
 
