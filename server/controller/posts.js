@@ -22,8 +22,11 @@ exports.getPost =async(req,res,next) =>{
 
 //Create new post
 exports.createPost =async(req,res,next) =>{
-        const post= await Posts.create(req.body);
-        res.status(201).json({success:true , post});
+    //Add User to eq.body
+    req.body.user=req.user.id;
+    
+    const post= await Posts.create(req.body);
+    res.status(201).json({success:true , post});
 }; 
 
 //delete a post

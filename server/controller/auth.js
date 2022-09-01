@@ -56,7 +56,9 @@ exports.logout = async(req,res,next)=>{
 }
 
 
-//@desc    Current logged in user
+//@desc     Get current logged in user
+//@route    POST/api/v1/auth/me
+//@access   Private
 exports.getMe =async(req,res,next)=>{
     const user= await User.findById(req.user.id);
 
@@ -66,6 +68,19 @@ exports.getMe =async(req,res,next)=>{
     })
 };
 
+
+//@desc     Forgot password
+//@route    POST/api/v1/auth/forgotpassword
+//@access   Public
+exports.fogotPassword =async(req,res,next)=>{
+    const user= await User.findOne({email:req.body.email});
+
+    if(!user){
+        return next(new ErrorResponse('User does not exist', 404));
+    }
+    //get reset token
+    
+};
 
 
 

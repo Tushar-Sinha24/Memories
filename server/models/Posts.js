@@ -5,13 +5,14 @@ const PostSchema=new mongoose.Schema({
 
     message: String,
 
-    creator: String,
-
     tags:[ {
         type:Array,
     }],
 
-    selectedFile: String,
+    photo:{
+        type:String,
+        default:'no-photo.jpg'
+    } ,
 
     likeCount:{
         type:Number,
@@ -21,8 +22,14 @@ const PostSchema=new mongoose.Schema({
     createdAt : {
         type: Date,
         default : Date.now
+    },
+    user:{
+        type:mongoose.Schema.ObjectId,
+        ref:'User',
+        required:true
     }
 });
+
 
 
 module.exports=mongoose.model('Post',PostSchema);
