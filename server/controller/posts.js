@@ -48,3 +48,27 @@ exports.deletePost =async(req,res,next) =>{
 }; 
 
 
+//@desc    Update A post
+//@access   Private
+exports.updatePost =async(req,res,next) =>{
+    let post = await Posts.findById(req.params.id);
+
+    if(!post){
+        return next(new ErrorResponse(`No Post with ${req.params.id} availabele`,401));
+    }
+
+    //Make sure User is the Post owener
+    if(post.user.toString()!==req.user.id){
+        return next(new ErrorResponse(`User ${req.user.id} is not authoursied to update this bootcamp`),404);
+    }
+    //updating the post
+    post= await Posts.findByIdAndUpdate(req.params.id, req.body,{
+        new: true,
+        runValidators: true
+});
+    console.log(post)
+    res.status(201).json({success:true , post});
+}; 
+
+
+
