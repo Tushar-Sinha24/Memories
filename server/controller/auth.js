@@ -21,6 +21,7 @@ exports.register = async(req,res)=>{
 
 
 //@desc    Login user
+
 exports.login=async(req,res,next)=>{
     const {email,password}=req.body;
 
@@ -43,6 +44,7 @@ exports.login=async(req,res,next)=>{
 
 
 //@desc   Log User out | Clear Cookie
+
 exports.logout = async(req,res,next)=>{
     
     res.cookie('token','none',{
@@ -110,6 +112,7 @@ exports.fogotPassword =async(req,res,next)=>{
 //@desc     Reset Password
 //@route    POST/api/v1/auth/resetpassword/:resettoken
 //@access   Public
+
 exports.resetpassword =async(req,res,next)=>{
     //Get hashed Token
     const resetPasswordToken = crypto.createHash('sha256').update(req.params.resettoken).digest('hex');
@@ -134,11 +137,8 @@ exports.resetpassword =async(req,res,next)=>{
 
 
 
-
-
-
-
 //Get token from model, create cookie and send response
+
 const sendTokenResponse = (user , statusCode , res)=>{
     //Create Token
     const token = user.getsignedJwtToken();
