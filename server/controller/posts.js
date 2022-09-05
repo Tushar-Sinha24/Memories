@@ -23,7 +23,7 @@ exports.getPost =async(req,res,next) =>{
 
 //Create new post
 exports.createPost =async(req,res,next) =>{
-    //Add User to eq.body
+    //Add User to req.body
     req.body.user=req.user.id;
     
     const post= await Posts.create(req.body);

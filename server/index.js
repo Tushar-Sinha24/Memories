@@ -14,6 +14,7 @@ connectToMongo();
 //Routes file
 const post=require('./routes/posts')
 const auth=require('./routes/auth')
+const comment=require('./routes/comments')
 
 const app =express();
 const port = 5000
@@ -31,6 +32,7 @@ app.subscribe(cors)
 //Mount routes
 app.use('/api/v1/post',post);
 app.use('/api/v1/auth',auth);
+app.use('/api/v1/comments',comment);
 
 app.use(errorHandler);
 
