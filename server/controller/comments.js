@@ -46,7 +46,7 @@ exports.addComment = async (req, res, next) => {
     const posts = await Posts.findById(req.params.postID);
 
     if (!posts) {
-        return next(new ErrorResponse(`No Post With id of ${req.params.bootcampDd}`,404));
+        return next(new ErrorResponse(`No Post With id of ${req.params.postID}`,404));
     }
 
     
@@ -90,6 +90,9 @@ exports.updateComments = async (req, res, next) => {
 //@access   Private
 exports.deleteComments = async (req, res, next) => {
     let comment = await Comment.findById(req.params.id);
+    let owner = await Posts.findById({post:comment.post})
+    console.log(owoner);
+    
 
     if(!comment){
         return next(new ErrorResponse(`No Comment With id of ${req.params.id}`,404));
@@ -99,7 +102,8 @@ exports.deleteComments = async (req, res, next) => {
     if(comment.user.toString() !== req.user.id){
         return next(new ErrorResponse(`Not Authorised to update Review`,401));
     }
-    comment.remove();
+
+    // comment.remove();
     res.status(201).json({success:true , data:{}});
 };
 
