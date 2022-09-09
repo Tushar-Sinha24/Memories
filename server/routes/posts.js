@@ -1,5 +1,5 @@
 const express=require('express');
-const{getPosts,getPost ,createPost,deletePost,updatePost}=require('../controller/posts')
+const{getPosts,getPost ,createPost,deletePost,updatePost , getUserPost}=require('../controller/posts')
 
 //Include Other resource Routers
 const commentRouter = require('./comments');
@@ -15,6 +15,7 @@ router.get('/',getPosts);
 router.get('/:id',getPost);
 router.post('/',protect , createPost);
 router.delete('/delete/:id',protect,deletePost);
-router.put('/update/:id' , protect , updatePost)
+router.put('/update/:id' , protect , updatePost);
+router.get('/mypost', protect , getUserPost)
 
 module.exports=router;

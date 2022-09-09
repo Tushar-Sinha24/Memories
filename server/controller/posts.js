@@ -10,7 +10,21 @@ exports.getPosts =async(req,res,next) =>{
         res.status(404).json({message:err.message})
     }
     
+};
+
+//Get the all post of the User he posted
+exports.getUserPost =async(req,res,next) =>{
+    
+    try {
+        console.log(req.user.id)
+        const post = await Posts.find({user: req.user.id});
+        res.status(200).json({ success: true,post});
+    } catch (err) {
+        res.status(404).json({message:err.message})
+    }
 }; 
+
+
 
 //Get a single post using id
 exports.getPost =async(req,res,next) =>{
@@ -68,7 +82,4 @@ exports.updatePost =async(req,res,next) =>{
 });
     console.log(post)
     res.status(201).json({success:true , post});
-}; 
-
-
-
+};
