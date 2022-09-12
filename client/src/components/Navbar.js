@@ -6,7 +6,7 @@ import {Link , NavLink } from "react-router-dom"
 const Navbar = () => {
   return (
     <div>
-      <AppBar sx={{background : 'linear-gradient(90deg, rgba(0,2,28,1) 0%, rgba(10,18,88,1) 54%, rgba(0,104,255,1) 100%)'}}>
+      <AppBar position='static' sx={{background : 'linear-gradient(90deg, rgba(0,2,28,1) 0%, rgba(10,18,88,1) 54%, rgba(0,104,255,1) 100%)'}}>
         <Toolbar>
         <NavLink to='/' className='navLink'><Typography variant="h6">Memories App</Typography></NavLink>
             <Box display='flex' marginLeft='auto'>

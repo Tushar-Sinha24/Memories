@@ -1,0 +1,68 @@
+body{
+    background: linear-gradient(80deg , #1a4bb4 , #8f78cf);
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.center h2{
+    text-align: center;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+    padding-bottom: 20px;
+    border-bottom: 1px solid silver;
+}
+
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txt-field{
+    position: relative;
+    margin:30px 0;
+}
+
+.txt-field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border:none;
+    background: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.pass{
+    font-weight:400;
+    margin-bottom: 15px;
+    color: rgb(160, 160, 160);
+}
+.submit{
+    display: flex;
+    justify-content: center;
+}
+
+.submit input{
+    border-radius: 15px;
+    padding: 8px 20px 8px 20px;
+    margin-bottom: 5px;
+}
+
+.signup_link{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
