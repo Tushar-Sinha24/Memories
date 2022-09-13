@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.grid{
+    margin: 10px 10px 0 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+
+}
+
+.card{
+    
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+}
+
+.image img{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.title{
+    padding: 0.5rem; 
+}
+
+.desc {
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0 50px  0;
+    padding: 3%;   
+}
+
+.card-footer button{
+  background: gray;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 45%;
+  font-size: 12px;
+}
