@@ -1,5 +1,6 @@
 const express=require('express');
-const{getPosts,getPost ,createPost,deletePost,updatePost , getUserPost}=require('../controller/posts')
+const{getPosts,getPost ,createPost,deletePost,updatePost , getUserPost}=require('../controller/posts');
+const upload = multer({ dest: 'uploads/' })
 
 //Include Other resource Routers
 const commentRouter = require('./comments');
@@ -13,7 +14,7 @@ const{protect} = require('../middleware/auth')
 
 router.get('/',getPosts);
 router.get('/:id',getPost);
-router.post('/',protect , createPost);
+router.post('/',upload.single('photo'),protect , createPost);
 router.delete('/delete/:id',protect,deletePost);
 router.put('/update/:id' , protect , updatePost);
 router.get('/mypost', protect , getUserPost)

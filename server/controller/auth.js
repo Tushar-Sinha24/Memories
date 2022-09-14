@@ -3,6 +3,7 @@ const ErrorResponse=require('../utils/errorResponse');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
 
+
 //@desc    Register a user
 
 exports.register = async(req,res)=>{
@@ -14,7 +15,9 @@ exports.register = async(req,res)=>{
         email,
         password
     })
-
+    if(User.find({email:email})){
+        return next(new ErrorResponse('Please provide and email and password' ,404));
+    }
     
     sendTokenResponse(user,200,res);
 }
@@ -40,6 +43,7 @@ exports.login=async(req,res,next)=>{
         return next(new ErrorResponse('Invalid Credential' ,404));
     }
     sendTokenResponse(user,200,res);
+    res.status(200).json({ success: true , token});
 };
 
 

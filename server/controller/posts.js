@@ -1,6 +1,7 @@
 const Posts = require('../models/Posts');
 const ErrorResponse=require('../utils/errorResponse');
 
+
 //Get all the post
 exports.getPosts =async(req,res,next) =>{
     try {
@@ -16,7 +17,6 @@ exports.getPosts =async(req,res,next) =>{
 exports.getUserPost =async(req,res,next) =>{
     
     try {
-        console.log(req.user.id)
         const post = await Posts.find({user: req.user.id});
         res.status(200).json({ success: true,post});
     } catch (err) {
