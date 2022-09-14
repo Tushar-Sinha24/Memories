@@ -15,9 +15,6 @@ exports.register = async(req,res)=>{
         email,
         password
     })
-    if(User.find({email:email})){
-        return next(new ErrorResponse('Please provide and email and password' ,404));
-    }
     
     sendTokenResponse(user,200,res);
 }

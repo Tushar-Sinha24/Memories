@@ -13,9 +13,10 @@ dotenv.config({path:'./config/config.env'})
 connectToMongo();
 
 //Routes file
-const post=require('./routes/posts')
-const auth=require('./routes/auth')
-const comment=require('./routes/comments')
+const post = require('./routes/posts')
+const auth = require('./routes/auth')
+const comment = require('./routes/comments');
+const user = require('./routes/user')
 
 const app =express();
 const port = 5000
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({limit: "30mb" , extended:true}));
 app.use('/api/v1/post',post);
 app.use('/api/v1/auth',auth);
 app.use('/api/v1/comments',comment);
+app.use('/api/v1/users', user);
 
 app.use(errorHandler);
 
