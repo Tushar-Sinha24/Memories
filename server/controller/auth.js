@@ -39,8 +39,7 @@ exports.login=async(req,res,next)=>{
     if(!isMatch){
         return next(new ErrorResponse('Invalid Credential' ,404));
     }
-    sendTokenResponse(user,200,res);
-    res.status(200).json({ success: true , token});
+    sendTokenResponse(user,200,res);   
 };
 
 
