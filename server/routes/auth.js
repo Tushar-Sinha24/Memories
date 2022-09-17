@@ -5,6 +5,8 @@ const{register, login , logout ,getMe,fogotPassword , resetpassword}= require('.
 const router =express.Router();
 const{protect} = require('../middleware/auth')
 
+
+
 router.post('/register',register);
 router.post('/login',login);
 router.get('/me',protect,getMe);
