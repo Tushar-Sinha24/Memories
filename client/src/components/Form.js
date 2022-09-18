@@ -5,10 +5,10 @@ const form = () => {
     return (
         <div>
             <div className="post-container">
-            <form>
+            <form onSubmit={handlePost}>
           <div className="post-text">
             <label>Title</label>
-            <input type='text' name='title' required />
+            <input type='text' name='title' value='' required />
           </div>
           <div className="post-text">
             <label>Description</label>
