@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Login from "./components/Login";
 import Signup from './components/Signup'
 import Home from "./components/Home";
+import Form from "./components/Form";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
+              <Route path='/form' element={<Form />} />
             </Routes>
           </div>
         </main>

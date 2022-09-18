@@ -1,0 +1,25 @@
+.post .post-btn{
+        border: none;
+        color: #0088ff;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 60px;
+        cursor: pointer;
+        
+        
+}
+
+.post button{
+    text-decoration: none;
+    border: none;
+    border-radius: 50%;
+    background-color:white;
+}
+
+.post{
+    position: fixed;
+    right:60px;
+    bottom:40px;
+    
+}

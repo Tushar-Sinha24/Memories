@@ -39,7 +39,8 @@ exports.getPost =async(req,res,next) =>{
 exports.createPost =async(req,res,next) =>{
     //Add User to req.body
     req.body.user=req.user.id;
-    
+    const {name,email,password,tag}=req.body;
+    console.log(req.file);
     
     const post= await Posts.create(req.body);
     res.status(201).json({success:true , post});

@@ -1,7 +1,14 @@
 import React from 'react'
 import './css/card.css'
+import './css/home.css'
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+
+
   return (
     <div>
       <div className="grid">
@@ -101,6 +108,10 @@ const Home = () => {
       </div>
 
 
+      </div>
+
+      <div className="post">
+      <AddCircleIcon className="post-btn" onClick={()=>navigate('/form')}></AddCircleIcon>
       </div>
     </div>
   )
