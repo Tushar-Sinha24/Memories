@@ -2,6 +2,9 @@ import React from 'react'
 import './css/postForm.css'
 
 const form = () => {
+  const handlePost=()=>{
+
+  }
     return (
         <div>
             <div className="post-container">
