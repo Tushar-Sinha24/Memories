@@ -1,8 +1,7 @@
 .post-container{
     padding: 62px 20px 62px 20px;
     background-color: rgb(196, 196, 196);
-    width: 20%;
-    
+    margin-top: 3%;
     
 }
 
@@ -32,3 +31,8 @@
         margin-top: 5px;
 
 }
+
+@media screen and (min-width: 480px) {
+    #leftsidebar {width: 200px; float: left;}
+    #main {margin-left: 216px;}
+  }

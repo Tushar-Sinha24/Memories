@@ -23,15 +23,22 @@ const Login = () => {
     });
     if(res.success){
       localStorage.setItem('token',res.token);
+      setCookie('token',res.token);
       alert("Successfully Loged in","success");
       navigate('/')
+
     }
+
     else{
       alert("User Not Found","danger")
       
     }
     
   }
+
+  function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue ;
+}
   
 
   const onChange =(e)=>{

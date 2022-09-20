@@ -5,7 +5,7 @@ const PostSchema=new mongoose.Schema({
 
     message: String,
 
-    tags:[ {
+    tag:[ {
         type:Array,
     }],
 

@@ -23,3 +23,9 @@
     bottom:40px;
     
 }
+
+.main-container{
+    margin: 2% 0 0 2%;
+    display: flex;
+    
+}

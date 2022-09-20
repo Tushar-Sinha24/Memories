@@ -1,113 +1,48 @@
-import React from 'react'
-import './css/card.css'
+import React, { useEffect, useState } from 'react'
 import './css/home.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useNavigate } from 'react-router-dom';
+import Card from './compo/Card';
+import Form from './Form'
+import axios from 'axios';
 
 const Home = () => {
   const navigate = useNavigate();
+  // const[post,setPost]=useState({id:'',title:'' , message: '', tags:'', photo:'', user:"" });
 
+  // const getNotes = async()=>{
+  //   await axios.get('http://localhost:5000/api/v1/post')
+  //   .then((response)=>{
+  //     console.log(response.data);
+  //   }).catch((err)=>{
+  //     console.log(err);
+  //   })
+  // }
+
+  // useEffect(()=>{
+  //   getNotes();
+  // },[])
 
 
   return (
     <div>
+      <div className="main-container">
       <div className="grid">
-      <div className="card">
-         <div className="image">
-          <img src="https://images.unsplash.com/photo-1663014958092-51b76d48272d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="asdsdas" />
-         </div>
-         <div className="card-body">
-          <div className="title">
-            <h5>userName</h5>
-            <h2>title</h2>
-          </div>
-          <div className="desc">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, eum.</p>
-          </div>
-          <div className="card-footer">
-            <button>Like</button>
-            <button>Comment</button>
-          </div>
-         </div>
-      </div>
-      
-
-      
-      <div className="card">
-         <div className="image">
-          <img src="https://images.unsplash.com/photo-1663014958092-51b76d48272d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="asdsdas" />
-         </div>
-         <div className="card-body">
-          <div className="title">
-            <h2>title</h2>
-          </div>
-          <div className="desc">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, eum.</p>
-          </div>
-          <div className="card-footer">
-            <button>Like</button>
-            <button>Comment</button>
-          </div>
-         </div>
-      </div>
-      
-
-      
-      <div className="card">
-         <div className="image">
-          <img src="https://images.unsplash.com/photo-1663014958092-51b76d48272d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="asdsdas" />
-         </div>
-         <div className="card-body">
-          <div className="title">
-            <h2>title</h2>
-          </div>
-          <div className="desc">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, eum.</p>
-          </div>
-          <div className="card-footer">
-            <button>Like</button>
-            <button>Comment</button>
-          </div>
-         </div>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
       </div>
 
-      <div className="card">
-         <div className="image">
-          <img src="https://images.unsplash.com/photo-1663014958092-51b76d48272d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="asdsdas" />
-         </div>
-         <div className="card-body">
-          <div className="title">
-            <h2>title</h2>
-          </div>
-          <div className="desc">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, eum.</p>
-          </div>
-          <div className="card-footer">
-            <button>Like</button>
-            <button>Comment</button>
-          </div>
-         </div>
+      <div className="post-form">
+        <Form/>
       </div>
-
-      <div className="card">
-         <div className="image">
-          <img src="https://images.unsplash.com/photo-1663014958092-51b76d48272d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="asdsdas" />
-         </div>
-         <div className="card-body">
-          <div className="title">
-            <h2>title</h2>
-          </div>
-          <div className="desc">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, eum.</p>
-          </div>
-          <div className="card-footer">
-            <button>Like</button>
-            <button>Comment</button>
-          </div>
-         </div>
-      </div>
-
-
       </div>
 
       <div className="post">
