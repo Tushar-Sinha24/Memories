@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './css/postForm.css'
 
 const Form = () => {
-  const [post , setPost] = useState({title:'', message:'' , tag:'' });
+  const [post , setPost] = useState({title:'', message:'' , tag:''});
   
   // const [fileName , setFileName] = useState("");
   
