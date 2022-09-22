@@ -38,12 +38,14 @@ exports.getPost =async(req,res,next) =>{
 //Create new post
 exports.createPost =async(req,res,next) =>{
     //Add User to req.body
-    req.body.user=req.user.id;
+    console.log(req.file.filename)
+    
     const post =new Posts({
         title:req.body.title,
         message:req.body.message,
         tag:req.body.tag,
-        // photo:req.file.originalname,
+        user:req.user.id,
+        photo:req.file.filename,
     });
 
     await post.save();
