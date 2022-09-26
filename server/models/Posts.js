@@ -5,9 +5,9 @@ const PostSchema=new mongoose.Schema({
 
     message: String,
 
-    tag:[ {
-        type:Array,
-    }],
+    tag:{
+        type:String,
+    },
 
     photo:{
         type:String,

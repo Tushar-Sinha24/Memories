@@ -38,6 +38,7 @@ exports.getPost =async(req,res,next) =>{
 //Create new post
 exports.createPost =async(req,res,next) =>{
     //Add User to req.body
+    console.log(req.body);
     console.log(req.file.filename)
     
     const post =new Posts({
